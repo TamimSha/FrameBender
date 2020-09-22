@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "/home/tamim/anaconda3/envs/tensor/bin/python",
+    "python.linting.enabled": true,
+    "python.dataScience.jupyterServerURI": "local"
+}
