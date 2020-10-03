@@ -26,7 +26,7 @@ def video_renderer():
         frameRenderer = FrameRenderer(files['files'][i]['name'] + "_",
             path,
             files['location']+files['files'][i]['name']+files['files'][i]['type'],
-            files['starting'], files['ending'])
+            files['starting'], files['ending'], files['resolution'])
         threads.append(frameRenderer)
     
     for t in threads:

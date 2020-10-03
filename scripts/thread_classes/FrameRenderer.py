@@ -2,7 +2,7 @@ import cv2
 import threading
 
 class FrameRenderer(threading.Thread):
-    def __init__(self, name, output, videoFile, start, end):
+    def __init__(self, name, output, videoFile, start, end, res):
         threading.Thread.__init__(self)
 
         self.video = cv2.VideoCapture()
@@ -15,6 +15,7 @@ class FrameRenderer(threading.Thread):
         self.__start = start
         self.__end = end
         self.index = 0
+        self.__res = res
 
         self.__setVideo(videoFile)
 
@@ -51,6 +52,7 @@ class FrameRenderer(threading.Thread):
                         (h, w) = image.shape[:2]
                         test = image[h//4, w//4].all() == 0 and image[h//4, 3*w//4].all() == 0 and image[3*h//4, 3*w//4].all() == 0 and image[3*h//4, w//4].all() == 0
                         if(not test):
+                            image = cv2.resize(image, (self.__res[0], self.__res[1]))
                             cv2.imwrite(self.output+self.name+"_{:05d}".format(self.index)+".jpg", image)
                 else:
                     self.__alive = False
