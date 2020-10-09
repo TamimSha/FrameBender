@@ -1,19 +1,25 @@
 {
-  "count": 6,
+  "count": 12,
   "files": [
     { "type": ".mkv", "name": "01" },
     { "type": ".mkv", "name": "02" },
     { "type": ".mkv", "name": "03" },
     { "type": ".mkv", "name": "04" },
     { "type": ".mkv", "name": "05" },
-    { "type": ".mkv", "name": "06" }
+    { "type": ".mkv", "name": "06" },
+    { "type": ".mkv", "name": "07" },
+    { "type": ".mkv", "name": "08" },
+    { "type": ".mkv", "name": "09" },
+    { "type": ".mkv", "name": "12" },
+    { "type": ".mkv", "name": "13" },
+    { "type": ".mkv", "name": "16" }
   ],
   "starting": 1250,
   "ending": 1750,
   "resolution": [640, 480],
   "split": 108,
   "output": "datasets/dataset_",
-  "number": "01/",
+  "number": "02/",
   "path": "datasets/frames_",
   "location": "datasets/videofiles/",
   "batch_size": 4000

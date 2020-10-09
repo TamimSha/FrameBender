@@ -25,6 +25,7 @@ class ImageCropper(threading.Thread):
         return (self.__progress / self.__numImages) * 100
 
     def run(self):
+        '''
         (w, h) = self.__res
         w_new = w - self.__split
         w_split = -1 * self.__split
@@ -46,6 +47,19 @@ class ImageCropper(threading.Thread):
             if(not self.__alive):
                 return
             self.__progress += 1
+        '''
+        ####
+        sizes = ['full', 'half', 'quarter']
+        for imageName in self.__imageNames:
+            image = cv2.imread(self.__path + imageName)
+            w = image.shape[0]
+            h = image.shape[1]
+            image = cv2.resize(image, (h//4, w//4))
+            cv2.imwrite(f'{self.__output}{sizes[2]}/{imageName[:-4]}.jpg', image)
+            if(not self.__alive):
+                return
+            self.__progress += 1
+        ####
         self.__progress = 100
         self.__alive = False
 
